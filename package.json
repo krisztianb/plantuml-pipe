@@ -1,0 +1,39 @@
+{
+    "name": "plantuml-piper",
+    "version": "0.1.0",
+    "description": "Generate multiple PlantUML diagrams with one JAVA process",
+    "author": {
+        "name": "Krisztián Balla",
+        "url": "https://github.com/krisztianb"
+    },
+    "license": "ISC",
+    "keywords": [
+        "uml",
+        "plantuml"
+    ],
+    "devDependencies": {
+        "@types/node": "^13.13.4",
+        "@types/split2": "^2.1.6",
+        "prettier": "^2.0.5",
+        "tslint": "^6.1.2",
+        "typescript": "^3.8.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krisztianb/typedoc-umlclass.git"
+    },
+    "main": "dist/index.js",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "lint": "npx tslint -p .",
+        "clean": "del /S /Q dist",
+        "build": "npx tsc",
+        "clean-build": "npm run clean && npm run build"
+    },
+    "dependencies": {
+        "binary-split": "^1.0.5",
+        "split2": "^3.1.1"
+    }
+}
