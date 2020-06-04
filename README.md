@@ -1,2 +1,3 @@
 # plantuml-pipe
-Convert PlantUML code to images
+
+Generate multiple PlantUML diagrams with one JAVA process
