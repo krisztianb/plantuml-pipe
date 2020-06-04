@@ -1,5 +1,5 @@
 {
-    "name": "plantuml-piper",
+    "name": "plantuml-pipe",
     "version": "0.1.0",
     "description": "Generate multiple PlantUML diagrams with one JAVA process",
     "author": {
