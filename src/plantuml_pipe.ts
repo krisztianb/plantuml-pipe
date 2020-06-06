@@ -4,7 +4,7 @@ import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import { EOL } from "os";
 import * as split2 from "split2";
 import { Readable, Writable } from "stream";
-import { TrimTransformStream } from "./trim_transform_stream";
+import { SkipEmptyChunksStream } from "./skip_empty_chunks_stream";
 
 /**
  * Options for a PlantUmlPipe.
@@ -59,13 +59,15 @@ export class PlantUmlPipe {
      * @param options Options for the PlantUML generating pipe.
      */
     constructor(options?: PlantUmlPipeOptions) {
+        const jarPath = options?.jarPath ?? "../vendor/plantuml.jar";
         const format = options?.outputFormat ?? "svg";
-        const split = options?.split ?? true;
         const delimiter = options?.delimiter ?? "___PLANTUML_DIAGRAM_DELIMITER___";
+        const split = options?.split ?? true;
+
         const taskArgs = [
             "-Djava.awt.headless=true",
             "-jar",
-            options?.jarPath ?? "../vendor/plantuml.jar",
+            jarPath,
             "-t" + format,
             "-pipe",
             "-pipedelimitor",
@@ -77,7 +79,10 @@ export class PlantUmlPipe {
 
         if (split) {
             const splitter = format === "png" ? bsplit(delimiter + EOL) : split2(delimiter + EOL);
-            this.outputStream = this.task.stdout.pipe(splitter).pipe(new TrimTransformStream());
+
+            // PlantUML pipe mode also adds the delimiter to the end of the last created image.
+            // This results in the last buffer being empty. SkipEmptyChunksStream drops that buffer.
+            this.outputStream = this.task.stdout.pipe(splitter).pipe(new SkipEmptyChunksStream());
         } else {
             this.outputStream = this.task.stdout;
         }

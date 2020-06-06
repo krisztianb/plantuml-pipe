@@ -1,9 +1,9 @@
 import { Transform, TransformCallback, TransformOptions } from "stream";
 
 /**
- * A stream that removes empty buffer chunks.
+ * A transformation stream that doesn't forward empty chunks.
  */
-export class TrimTransformStream extends Transform {
+export class SkipEmptyChunksStream extends Transform {
     /**
      * Creates a new transform stream.
      * @param opts Transform stream options.
@@ -20,9 +20,7 @@ export class TrimTransformStream extends Transform {
      * @param callback A callback function (optionally with an error argument and data) to be called
      *                 after the supplied chunk has been processed.
      */
-    _transform(chunk: Buffer, _encoding: string, callback: TransformCallback): void {
-        // PlantUML pipe mode also adds the delimiter to the end of the last created image.
-        // This results in the last buffer being empty. Here we drop that buffer.
+    _transform(chunk: Buffer | string, _encoding: string, callback: TransformCallback): void {
         if (chunk.length > 0) {
             this.push(chunk);
         }
