@@ -15,7 +15,7 @@ import { PlantUmlPipe } from "plantuml_pipe";
 const puml = new PlantUmlPipe();
 
 let fileCounter = 0;
-puml.out.on("data", function (chunk) {
+puml.out.on("data", (chunk: string) => {
     fs.writeFileSync("./" + fileCounter + ".svg", chunk);
     ++fileCounter;
 });
