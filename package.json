@@ -16,7 +16,11 @@
         "@types/split2": "^2.1.6",
         "prettier": "^2.0.5",
         "tslint": "^6.1.2",
-        "typescript": "^3.8.3"
+        "typescript": "^3.9.5"
+    },
+    "dependencies": {
+        "binary-split": "^1.0.5",
+        "split2": "^3.1.1"
     },
     "repository": {
         "type": "git",
@@ -32,9 +36,5 @@
         "build": "npx tsc",
         "clean-build": "npm run clean && npm run build",
         "test": "cd test && node ./index.js"
-    },
-    "dependencies": {
-        "binary-split": "^1.0.5",
-        "split2": "^3.1.1"
     }
 }
