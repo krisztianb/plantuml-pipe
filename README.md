@@ -8,7 +8,7 @@ and an output stream (`out`) from which the generated diagrams can be read.
 
 The following code creates two SVG image files:
 
-```
+```typescript
 import * as fs from "fs";
 import { PlantUmlPipe } from "plantuml_pipe";
 
