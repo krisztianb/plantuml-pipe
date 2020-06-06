@@ -22,7 +22,7 @@
         "type": "git",
         "url": "git+https://github.com/krisztianb/plantuml-pipe.git"
     },
-    "main": "dist/index.js",
+    "main": "dist/plantuml_pipe.js",
     "files": [
         "/dist"
     ],
@@ -30,7 +30,8 @@
         "lint": "npx tslint -p .",
         "clean": "del /S /Q dist",
         "build": "npx tsc",
-        "clean-build": "npm run clean && npm run build"
+        "clean-build": "npm run clean && npm run build",
+        "test": "cd test && node ./index.js"
     },
     "dependencies": {
         "binary-split": "^1.0.5",
