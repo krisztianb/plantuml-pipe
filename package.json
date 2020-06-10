@@ -1,6 +1,6 @@
 {
     "name": "plantuml-pipe",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Generate multiple PlantUML diagrams with one JAVA process",
     "author": {
         "name": "Krisztián Balla",
@@ -27,6 +27,7 @@
         "url": "git+https://github.com/krisztianb/plantuml-pipe.git"
     },
     "main": "dist/plantuml_pipe.js",
+    "types": "dist/plantuml_pipe.d.ts",
     "files": [
         "/dist"
     ],
