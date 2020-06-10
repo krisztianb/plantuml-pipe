@@ -20,7 +20,7 @@ export class SkipEmptyChunksStream extends Transform {
      * @param callback A callback function (optionally with an error argument and data) to be called
      *                 after the supplied chunk has been processed.
      */
-    _transform(chunk: Buffer | string, _encoding: string, callback: TransformCallback): void {
+    public _transform(chunk: Buffer | string, _encoding: string, callback: TransformCallback): void {
         if (chunk.length > 0) {
             this.push(chunk);
         }
