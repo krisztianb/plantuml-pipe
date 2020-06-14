@@ -39,15 +39,15 @@ First image (0.svg) | Second image (1.svg)
 
 The `PlantUmlPipe` constructor can receive an options object as a parameter. It has the following members:
 
+-   **jarPath**
+
+    A string specifying the path to the PlantUML jar file that is used to generate the diagrams.
+    Default: `../vendor/plantuml.jar` pointing to the file that is installed with this module.
+
 -   **outputFormat**
 
     A string specifying the output format of the generated diagrams.
     Possible values are: `latex | latex:nopreamble | pdf | png | svg | txt | utxt | vdx`. Default: `svg`
-
--   **jarPath**
-
-    A string specifying the path to the PlantUML jar file that is used to generate the diagrams.
-    Default: `../vendor/plantuml.jar`
 
 -   **delimiter**
 

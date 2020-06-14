@@ -2,6 +2,7 @@
 import * as bsplit from "binary-split";
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import { EOL } from "os";
+import * as path from "path";
 import * as split2 from "split2";
 import { Readable, Writable } from "stream";
 import { SkipEmptyChunksStream } from "./skip_empty_chunks_stream";
@@ -11,16 +12,16 @@ import { SkipEmptyChunksStream } from "./skip_empty_chunks_stream";
  */
 export interface PlantUmlPipeOptions {
     /**
-     * Output format for the generated diagrams.
-     * @default svg
-     */
-    outputFormat: "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
-
-    /**
      * Possible path to the plantuml.jar file to be used to generate diagrams.
      * @default "../vendor/plantuml.jar"
      */
     jarPath?: string;
+
+    /**
+     * Output format for the generated diagrams.
+     * @default svg
+     */
+    outputFormat: "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
 
     /**
      * Delimiter used in the output stream to separate diagrams.
@@ -59,8 +60,8 @@ export class PlantUmlPipe {
      * @param options Options for the PlantUML generating pipe.
      */
     constructor(options?: PlantUmlPipeOptions) {
-        const jarPath = options?.jarPath ?? "../vendor/plantuml.jar";
-        const format = options?.outputFormat ?? "svg";
+        const jarPath = options?.jarPath ?? path.join(__dirname, "../vendor/plantuml.jar");
+        const outputFormat = options?.outputFormat ?? "svg";
         const delimiter = options?.delimiter ?? "___PLANTUML_DIAGRAM_DELIMITER___";
         const split = options?.split ?? true;
 
@@ -68,7 +69,7 @@ export class PlantUmlPipe {
             "-Djava.awt.headless=true",
             "-jar",
             jarPath,
-            "-t" + format,
+            "-t" + outputFormat,
             "-pipe",
             "-pipedelimitor",
             delimiter,
@@ -78,7 +79,7 @@ export class PlantUmlPipe {
         this.inputStream = this.task.stdin;
 
         if (split) {
-            const splitter = format === "png" ? bsplit(delimiter + EOL) : split2(delimiter + EOL);
+            const splitter = outputFormat === "png" ? bsplit(delimiter + EOL) : split2(delimiter + EOL);
 
             // PlantUML pipe mode also adds the delimiter to the end of the last created image.
             // This results in the last buffer being empty. SkipEmptyChunksStream drops that buffer.
