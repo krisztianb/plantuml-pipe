@@ -12,6 +12,7 @@
         "plantuml"
     ],
     "devDependencies": {
+        "@types/binary-split": "^1.0.0",
         "@types/node": "^13.13.4",
         "@types/split2": "^2.1.6",
         "prettier": "^2.0.5",

@@ -1,9 +1,8 @@
-// @ts-ignore: There are no type definitions for this module
-import * as bsplit from "binary-split";
+import bsplit from "binary-split";
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import { EOL } from "os";
 import * as path from "path";
-import * as split2 from "split2";
+import split2 from "split2";
 import { Readable, Writable } from "stream";
 import { SkipEmptyChunksStream } from "./skip_empty_chunks_stream";
 
