@@ -1,8 +1,18 @@
+[![NPM Version](https://badge.fury.io/js/plantuml-pipe.svg)](https://badge.fury.io/js/plantuml-pipe)
+
 # plantuml-pipe
 
 A PlantUmlPipe instance is a wrapper to a PlantUML JAVA process running in pipe mode.
 The object has an input stream (`in`) into which the PlantUML code for one or multiple diagrams can be written
 and an output stream (`out`) from which the generated diagrams can be read.
+
+## Installation
+
+The module can then be installed using [npm](https://www.npmjs.com/package/plantuml-pipe):
+
+```sh
+$ npm install plantuml-pipe
+```
 
 ## Usage
 
