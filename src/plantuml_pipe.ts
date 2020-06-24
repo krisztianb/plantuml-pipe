@@ -33,6 +33,12 @@ export interface PlantUmlPipeOptions {
      * @default true
      */
     split?: boolean;
+
+    /**
+     * The PlantUML include path where include files are looked for.
+     * @default "."
+     */
+    includePath?: string;
 }
 
 /**
@@ -63,9 +69,11 @@ export class PlantUmlPipe {
         const outputFormat = options?.outputFormat ?? "svg";
         const delimiter = options?.delimiter ?? "___PLANTUML_DIAGRAM_DELIMITER___";
         const split = options?.split ?? true;
+        const includePath = options?.includePath ?? ".";
 
         const taskArgs = [
             "-Djava.awt.headless=true",
+            `-Dplantuml.include.path="${includePath}"`,
             "-jar",
             jarPath,
             "-t" + outputFormat,

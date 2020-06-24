@@ -60,3 +60,8 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
     This option specifies if the PlantUmlPipe instance should automatically split the PlantUML output stream at the
     specified delimiter and emit one `data` event per generated image. You can set this option to `false` to deactivate
     this splitting and have full control over the output stream. Default: `true`
+
+-   **includePath**
+
+    A string specifying the path where the PlantUML process is going to look for files included in the PlantUML code.
+    Default: `.` pointing to the folder from which the node process is started.
