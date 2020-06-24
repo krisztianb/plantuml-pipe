@@ -31,9 +31,9 @@ puml.in.end();
 
 Output:
 
-First image (0.svg) | Second image (1.svg)
-:------------------:|:--------------------:
-![First image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN8ghQfIqBLJ2C_FJwbKi588oLV8p4lBpCiigTJJqrD8p4jHI4gjpCzBKUHoICrB0Me10000) | ![Second image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuGhFpq-fLD2rKt0ghQfIi5Bmo2y7yWk0idcfHOfS3gbvAK1b0000)
+|                                                            First image (0.svg)                                                            |                                                  Second image (1.svg)                                                  |
+| :---------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
+| ![First image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN8ghQfIqBLJ2C_FJwbKi588oLV8p4lBpCiigTJJqrD8p4jHI4gjpCzBKUHoICrB0Me10000) | ![Second image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuGhFpq-fLD2rKt0ghQfIi5Bmo2y7yWk0idcfHOfS3gbvAK1b0000) |
 
 ## Options
 
@@ -64,4 +64,12 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
 -   **includePath**
 
     A string specifying the path where the PlantUML process is going to look for files included in the PlantUML code.
-    Default: `.` pointing to the folder from which the node process is started.
+    Default: `.` pointing to the folder where the node process is started.
+
+-   **javaOptions**
+
+    A string array of options that are passed to the JAVA process. Default: none
+
+-   **plantUmlArgs**
+
+    A string array of arguments that are passed to the PlantUML process. Default: none

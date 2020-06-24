@@ -39,6 +39,16 @@ export interface PlantUmlPipeOptions {
      * @default "."
      */
     includePath?: string;
+
+    /**
+     * A collection of options that are passed to the JAVA process.
+     */
+    javaOptions?: string[];
+
+    /**
+     * A collection of arguments that are passed to the PlantUML process.
+     */
+    plantUmlArgs?: string[];
 }
 
 /**
@@ -74,12 +84,14 @@ export class PlantUmlPipe {
         const taskArgs = [
             "-Djava.awt.headless=true",
             `-Dplantuml.include.path="${includePath}"`,
+            ...(options?.javaOptions ?? []),
             "-jar",
             jarPath,
             "-t" + outputFormat,
             "-pipe",
             "-pipedelimitor",
             delimiter,
+            ...(options?.plantUmlArgs ?? []),
         ];
 
         this.task = spawn("java", taskArgs);
