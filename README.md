@@ -93,7 +93,7 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
 
     A string array of options that are passed to the JAVA process. If you are generating many big diagrams it might
     be necessary to increase the maximum heap size of the JAVA process. You can use this property to do so - look
-    (here)[https://plantuml.com/de/faq#e689668a91b8d065] for more information on this issue. Default: none
+    [here](https://plantuml.com/de/faq#e689668a91b8d065) for more information on this issue. Default: none
 
 -   **plantUmlArgs**
 
@@ -102,4 +102,4 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
     the options argument you pass to the constructor of PlantUmlPipe - for example the `delimiter` property sets
     the `-pipedelimitor "xyz"` option. If there is no property for the option that you want to pass to the
     PlantUML process, you can use this property to do so. You can find the list of possible PlantUML options
-    (here)[https://plantuml.com/de/command-line#6a26f548831e6a8c]. Default: none
+    [here](https://plantuml.com/de/command-line#6a26f548831e6a8c). Default: none
