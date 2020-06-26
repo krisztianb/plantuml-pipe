@@ -18,6 +18,9 @@ testPng();
 console.log("Generating cut-off PNG output ...");
 testOptionPixelCutOffValue();
 
+console.log("Generating error text file ...");
+testOptionNoErrorImages();
+
 // Delete the existing images in the directory
 function cleanUp() {
     var directory = __dirname;
@@ -71,5 +74,19 @@ function testOptionPixelCutOffValue() {
     puml.out.on("data", function (chunk) {
         fs.writeFileSync("./" + fileCounter + "-cutoff.png", chunk);
         ++fileCounter;
+    });
+}
+
+// Test option: no error images
+function testOptionNoErrorImages() {
+    var puml = new plantuml_piper_1.PlantUmlPipe({ noErrorImages: true });
+
+    puml.in.write("@startuml\n");
+    puml.in.write(".\n");
+    puml.in.write("@enduml\n");
+    puml.in.end();
+
+    puml.out.on("data", function (chunk) {
+        fs.writeFileSync("./error.svg", chunk);
     });
 }

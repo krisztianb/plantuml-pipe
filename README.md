@@ -81,6 +81,14 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
     To prevent memory problems PlantUML limits the width and height of pixel (PNG) graphics to 4096. Use this option to
     set the `PLANTUML_LIMIT_SIZE` variable which overrides this value. Default: none
 
+-   **noErrorImages**
+
+    By default when the PlantUML process encounters an error (eg: because of an error in your PlantUML code), it still
+    generates an image which contains an error message. You can set this option to `true` to disable error image
+    generation. You can then implement an error handling yourself using the normal data event of PlantUMLPipe's
+    output stream. For every error the data chunk of the event is going to start with the line `ERROR`.
+    Default: `false`
+
 -   **javaOptions**
 
     A string array of options that are passed to the JAVA process. If you are generating many big diagrams it might

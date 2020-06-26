@@ -20,7 +20,7 @@ export interface PlantUmlPipeOptions {
      * Output format for the generated diagrams.
      * @default svg
      */
-    outputFormat: "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
+    outputFormat?: "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
 
     /**
      * Delimiter used in the output stream to separate diagrams.
@@ -44,6 +44,11 @@ export interface PlantUmlPipeOptions {
      * Sets the PLANTUML_LIMIT_SIZE variable specifying the maximum width and height of pixel graphic output.
      */
     pixelCutOffValue?: number;
+
+    /**
+     * If true, in case of an error the data event is not going to contain an error image but only an error message.
+     */
+    noErrorImages?: boolean;
 
     /**
      * A collection of options that are passed to the JAVA process.
@@ -97,6 +102,7 @@ export class PlantUmlPipe {
             "-pipe",
             "-pipedelimitor",
             delimiter,
+            ...(options?.noErrorImages ? ["-pipeNoStderr"] : []),
             ...(options?.plantUmlArgs ?? []),
         ];
 
