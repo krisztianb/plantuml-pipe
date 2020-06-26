@@ -76,6 +76,11 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
     A string specifying the path where the PlantUML process is going to look for files included in the PlantUML code.
     Default: `.` pointing to the folder where the node process is started.
 
+-   **pixelCutOffValue**
+
+    To prevent memory problems PlantUML limits the width and height of pixel (PNG) graphics to 4096. Use this option to
+    set the `PLANTUML_LIMIT_SIZE` variable which overrides this value. Default: none
+
 -   **javaOptions**
 
     A string array of options that are passed to the JAVA process. If you are generating many big diagrams it might

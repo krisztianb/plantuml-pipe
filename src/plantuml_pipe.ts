@@ -41,6 +41,11 @@ export interface PlantUmlPipeOptions {
     includePath?: string;
 
     /**
+     * Sets the PLANTUML_LIMIT_SIZE variable specifying the maximum width and height of pixel graphic output.
+     */
+    pixelCutOffValue?: number;
+
+    /**
      * A collection of options that are passed to the JAVA process.
      */
     javaOptions?: string[];
@@ -84,6 +89,7 @@ export class PlantUmlPipe {
         const taskArgs = [
             "-Djava.awt.headless=true",
             `-Dplantuml.include.path="${includePath}"`,
+            ...(options?.pixelCutOffValue ? [`-DPLANTUML_LIMIT_SIZE=${options.pixelCutOffValue}`] : []),
             ...(options?.javaOptions ?? []),
             "-jar",
             jarPath,
