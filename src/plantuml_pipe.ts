@@ -1,5 +1,6 @@
 import bsplit from "binary-split";
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
+import * as fs from "fs";
 import { EOL } from "os";
 import * as path from "path";
 import split2 from "split2";
@@ -86,6 +87,11 @@ export class PlantUmlPipe {
      */
     constructor(options?: PlantUmlPipeOptions) {
         const jarPath = options?.jarPath ?? path.join(__dirname, "../vendor/plantuml.jar");
+
+        if (!fs.existsSync(jarPath)) {
+            throw new Error("File not found: " + jarPath);
+        }
+
         const outputFormat = options?.outputFormat ?? "svg";
         const delimiter = options?.delimiter ?? "___PLANTUML_DIAGRAM_DELIMITER___";
         const split = options?.split ?? true;

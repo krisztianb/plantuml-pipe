@@ -21,6 +21,9 @@ testOptionPixelCutOffValue();
 console.log("Generating error text file ...");
 testOptionNoErrorImages();
 
+console.log("Calling with invalid JAR path ...");
+testInvalidJarPath();
+
 // Delete the existing images in the directory
 function cleanUp() {
     var directory = __dirname;
@@ -89,4 +92,16 @@ function testOptionNoErrorImages() {
     puml.out.on("data", function (chunk) {
         fs.writeFileSync("./error.svg", chunk);
     });
+}
+
+// Test calling with invalid JAR path
+function testInvalidJarPath() {
+    try {
+        new plantuml_piper_1.PlantUmlPipe({ jarPath: "asdf.jar" });
+        throw new Error("testInvalidJarPath failed");
+    } catch (ex) {
+        if (!ex.message.startsWith("File not found")) {
+            throw new Error("testInvalidJarPath failed");
+        }
+    }
 }

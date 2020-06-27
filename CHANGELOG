@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1] - 2020-06-27
+### Added
+- Throw error when plantuml.jar cannot be found
+
 ## [1.3.0] - 2020-06-26
 ### Fixed
 - Missing plantuml.jar in package
@@ -27,8 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First version
 
-[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.3.0...HEAD
-[1.3.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.2.0
+[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.1
+[1.3.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.0
 [1.2.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.2.0
 [1.1.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.1.0
 [1.0.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.0.0
