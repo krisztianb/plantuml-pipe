@@ -8,15 +8,16 @@ an output streams (`out`) from which the generated diagrams can be read.
 
 ## Installation
 
-The module includes type definitions for TypeScript.
-It can then be installed using [npm](https://www.npmjs.com/package/plantuml-pipe):
+This module can be installed using [npm](https://www.npmjs.com/package/plantuml-pipe):
 
 ```sh
 $ npm install plantuml-pipe
 ```
 
 **Note:** [JAVA](https://www.java.com/) and [Graphviz](https://graphviz.org/) must be installed on your system in
-order to use this module. PlantUML however is included with this module.
+order to use this module. A corresponding test is run after installing this module.
+
+This module includes type definitions for TypeScript.
 
 ## Usage
 
