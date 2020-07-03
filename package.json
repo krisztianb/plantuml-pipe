@@ -27,9 +27,6 @@
         "type": "git",
         "url": "git+https://github.com/krisztianb/plantuml-pipe.git"
     },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    },
     "main": "dist/plantuml_pipe.js",
     "types": "dist/plantuml_pipe.d.ts",
     "files": [
