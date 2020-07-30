@@ -10,7 +10,7 @@ import { SkipEmptyChunksStream } from "./skip_empty_chunks_stream";
 /**
  * Options for a PlantUmlPipe.
  */
-export interface PlantUmlPipeOptions {
+export type PlantUmlPipeOptions = {
     /**
      * Possible path to the plantuml.jar file to be used to generate diagrams.
      * @default "../vendor/plantuml.jar"
@@ -60,7 +60,7 @@ export interface PlantUmlPipeOptions {
      * A collection of arguments that are passed to the PlantUML process.
      */
     plantUmlArgs?: string[];
-}
+};
 
 /**
  * Class that wraps a PlantUML diagram generator running in pipe mode.
