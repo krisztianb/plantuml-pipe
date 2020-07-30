@@ -2,6 +2,10 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
+process.on("uncaughtException", function (err) {
+    console.error(err.message);
+});
+
 var plantuml_piper_1 = require("../dist/plantuml_pipe");
 
 console.log("Testing installation of JAVA and Graphviz ...");
@@ -27,7 +31,7 @@ function doTestDot() {
             console.log("[OK] Test successful. You are all set up to use plantuml-pipe.\n");
         } else {
             console.error(
-                "[ERROR] Test failed. You need to install JAVA and Graphviz in order to use plantuml-pipe.\n"
+                "[ERROR] Test failed. You need to install JAVA and Graphviz in order to use plantuml-pipe.\n",
             );
         }
     });

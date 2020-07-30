@@ -19,7 +19,7 @@ export type PlantUmlPipeOptions = {
 
     /**
      * Output format for the generated diagrams.
-     * @default svg
+     * @default "svg"
      */
     outputFormat?: "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
 
