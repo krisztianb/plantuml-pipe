@@ -3,13 +3,13 @@ import { Transform, TransformCallback, TransformOptions } from "stream";
 /**
  * A transformation stream that doesn't forward empty chunks.
  */
-export class SkipEmptyChunksStream extends Transform {
+export class DropEmptyChunksStream extends Transform {
     /**
      * Creates a new transform stream.
-     * @param opts Transform stream options.
+     * @param options Transform stream options.
      */
-    constructor(opts?: TransformOptions) {
-        super(opts);
+    constructor(options?: TransformOptions) {
+        super(options);
     }
 
     /**

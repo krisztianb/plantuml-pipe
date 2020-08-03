@@ -2,15 +2,20 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
+var plantuml_piper_1 = require("../dist/plantuml_pipe");
+
+// When PlantUmlPipe wants to spawn a JAVA process and JAVA is not installed, node.js will emit an exception.
+// Here we catch such exceptions and output them to the console.
 process.on("uncaughtException", function (err) {
     console.error(err.message);
 });
 
-var plantuml_piper_1 = require("../dist/plantuml_pipe");
-
 console.log("Testing installation of JAVA and Graphviz ...");
 doTestDot();
 
+/**
+ * Creates a PlantUmlPipe with the "-testdot" argument to test the installation of JAVA and Graphviz DOT.
+ */
 function doTestDot() {
     var chunks = [];
 
