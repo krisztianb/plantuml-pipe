@@ -107,3 +107,13 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
     the `-pipedelimitor "xyz"` option. If there is no property for the option that you want to pass to the
     PlantUML process, you can use this property to do so. You can find the list of possible PlantUML options
     [here](https://plantuml.com/de/command-line#6a26f548831e6a8c). Default: none
+
+## Bugs
+
+Please report bugs [here](https://github.com/krisztianb/plantuml-pipe/issues). Thanks for your contribution!
+
+## Donate
+
+If you find this piece of software helpful, please consider a donation. Any amount is greatly appreciated.
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=67UU75EUH4S8A)
