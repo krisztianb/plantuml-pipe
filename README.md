@@ -1,4 +1,4 @@
-[![NPM Version](https://badge.fury.io/js/plantuml-pipe.svg)](https://badge.fury.io/js/plantuml-pipe)
+[![NPM Version](https://badge.fury.io/js/plantuml-pipe.svg)](https://badge.fury.io/js/plantuml-pipe) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=67UU75EUH4S8A)
 
 # plantuml-pipe
 
