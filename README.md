@@ -2,9 +2,9 @@
 
 # plantuml-pipe
 
-<p style="text-align:center">
-    <img src="https://github.com/krisztianb/plantuml-pipe/raw/master/images/plantuml-pipe.png" style="width:576px" alt="The PlantUmlPipe data flow" />
-</p>
+<div style="text-align:center">
+    <img src="https://github.com/krisztianb/plantuml-pipe/raw/master/images/plantuml-pipe.png" width="576px" alt="The PlantUmlPipe data flow" />
+</div>
 
 A PlantUmlPipe instance is a wrapper to a PlantUML JAVA process running in pipe mode.
 The object has an input stream (`in`) into which the PlantUML code for one or multiple diagrams can be written and
@@ -58,59 +58,17 @@ Output:
 
 The `PlantUmlPipe` constructor can receive an options object as a parameter. It has the following members:
 
--   **jarPath**
-
-    A string specifying the path to the PlantUML jar file that is used to generate the diagrams.
-    Default: `../vendor/plantuml.jar` pointing to the file that is installed with this module.
-
--   **outputFormat**
-
-    A string specifying the output format of the generated diagrams.
-    Possible values are: `latex | latex:nopreamble | pdf | png | svg | txt | utxt | vdx`. Default: `svg`
-
--   **delimiter**
-
-    A string specifying the delimiter the PlantUML process should use so separate the image files in the output stream.
-    You only need to set this value if the default value is used as text in your PlantUML code.
-    But why would you do that, right? Default: `___PLANTUML_DIAGRAM_DELIMITER___`
-
--   **split**
-
-    This option specifies if the PlantUmlPipe instance should automatically split the PlantUML output stream at the
-    specified delimiter and emit one `data` event per generated image. You can set this option to `false` to deactivate
-    this splitting and have full control over the output stream. Default: `true`
-
--   **includePath**
-
-    A string specifying the path where the PlantUML process is going to look for files included in the PlantUML code.
-    Default: `.` pointing to the folder where the node process is started.
-
--   **pixelCutOffValue**
-
-    To prevent memory problems PlantUML limits the width and height of pixel (PNG) graphics to 4096. Use this option to
-    set the `PLANTUML_LIMIT_SIZE` variable which overrides this value. Default: none
-
--   **noErrorImages**
-
-    By default when the PlantUML process encounters an error (eg: because of an error in your PlantUML code), it still
-    generates an image which contains an error message. You can set this option to `true` to disable error image
-    generation. You can then implement an error handling yourself using the normal data event of PlantUMLPipe's
-    output stream. For every error the data chunk of the event is going to start with the line `ERROR`. Default: `false`
-
--   **javaOptions**
-
-    A string array of options that are passed to the JAVA process. If you are generating many big diagrams it might
-    be necessary to increase the maximum heap size of the JAVA process. You can use this property to do so - look
-    [here](https://plantuml.com/de/faq#e689668a91b8d065) for more information on this issue. Default: none
-
--   **plantUmlArgs**
-
-    A string array of arguments that are passed to the PlantUML process as options. The PlantUML process has many
-    options that you can set through the command line. Some of these options can be set directly using a property of
-    the options argument you pass to the constructor of PlantUmlPipe - for example the `delimiter` property sets
-    the `-pipedelimitor "xyz"` option. If there is no property for the option that you want to pass to the
-    PlantUML process, you can use this property to do so. You can find the list of possible PlantUML options
-    [here](https://plantuml.com/de/command-line#6a26f548831e6a8c). Default: none
+| Name               | Description                                                                                  | Default                  |
+| ------------------ | -------------------------------------------------------------------------------------------- | ------------------------ |
+| `jarPath`          | A string specifying the path to the PlantUML jar file that is used to generate the diagrams. | `../vendor/plantuml.jar` |
+| `outputFormat`     | A string specifying the output format of the generated diagrams. Possible values are: `latex | latex:nopreamble | pdf | png | svg | txt | utxt | vdx`. | `svg` |
+| `delimiter`        | A string specifying the delimiter the PlantUML process should use so separate the image files in the output stream. You only need to set this value if the default value is used as text in your PlantUML code. But why would you do that, right? | `___PLANTUML_DIAGRAM_DELIMITER___` |
+| `split`            | This option specifies if the PlantUmlPipe instance should automatically split the PlantUML output stream at the specified delimiter and emit one `data` event per generated image. You can set this option to `false` to deactivate this splitting and have full control over the output stream. | `true` |
+| `includePath`      | A string specifying the path where the PlantUML process is going to look for files included in the PlantUML code. | `.` |
+| `pixelCutOffValue` | To prevent memory problems PlantUML limits the width and height of pixel (PNG) graphics to 4096. Use this option to set the `PLANTUML_LIMIT_SIZE` variable which overrides this value. |  |
+| `noErrorImages`    | By default when the PlantUML process encounters an error (eg: because of an error in your PlantUML code), it still generates an image which contains an error message. You can set this option to `true` to disable error image generation. You can then implement an error handling yourself using the normal data event of PlantUMLPipe's output stream. For every error the data chunk of the event is going to start with the line `ERROR`. | `false` |
+| `javaOptions`      | A string array of options that are passed to the JAVA process. If you are generating many big diagrams it might be necessary to increase the maximum heap size of the JAVA process. You can use this property to do so - look [here](https://plantuml.com/de/faq#e689668a91b8d065) for more information on this issue. |  |
+| `plantUmlArgs`     | A string array of arguments that are passed to the PlantUML process as options. The PlantUML process has many options that you can set through the command line. Some of these options can be set directly using a property of the options argument you pass to the constructor of PlantUmlPipe - for example the `delimiter` property sets the `-pipedelimitor "xyz"` option. If there is no property for the option that you want to pass to the PlantUML process, you can use this property to do so. You can find the list of possible PlantUML options [here](https://plantuml.com/de/command-line#6a26f548831e6a8c). |  |
 
 ## Bugs
 
