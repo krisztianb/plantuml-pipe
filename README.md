@@ -2,9 +2,7 @@
 
 # plantuml-pipe
 
-<div style="text-align:center">
-    <img src="https://github.com/krisztianb/plantuml-pipe/raw/master/images/plantuml-pipe.png" width="576px" alt="The PlantUmlPipe data flow" />
-</div>
+<img src="https://github.com/krisztianb/plantuml-pipe/raw/master/images/plantuml-pipe.png" align="center" width="576px" alt="The PlantUmlPipe data flow" />
 
 A PlantUmlPipe instance is a wrapper to a PlantUML JAVA process running in pipe mode.
 The object has an input stream (`in`) into which the PlantUML code for one or multiple diagrams can be written and
@@ -61,7 +59,7 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
 | Name               | Description                                                                                  | Default                  |
 | ------------------ | -------------------------------------------------------------------------------------------- | ------------------------ |
 | `jarPath`          | A string specifying the path to the PlantUML jar file that is used to generate the diagrams. | `../vendor/plantuml.jar` |
-| `outputFormat`     | A string specifying the output format of the generated diagrams. Possible values are: `latex | latex:nopreamble | pdf | png | svg | txt | utxt | vdx`. | `svg` |
+| `outputFormat`     | A string specifying the output format of the generated diagrams. Possible values are: `latex \| latex:nopreamble \| pdf \| png \| svg \| txt \| utxt \| vdx`. | `svg` |
 | `delimiter`        | A string specifying the delimiter the PlantUML process should use so separate the image files in the output stream. You only need to set this value if the default value is used as text in your PlantUML code. But why would you do that, right? | `___PLANTUML_DIAGRAM_DELIMITER___` |
 | `split`            | This option specifies if the PlantUmlPipe instance should automatically split the PlantUML output stream at the specified delimiter and emit one `data` event per generated image. You can set this option to `false` to deactivate this splitting and have full control over the output stream. | `true` |
 | `includePath`      | A string specifying the path where the PlantUML process is going to look for files included in the PlantUML code. | `.` |
