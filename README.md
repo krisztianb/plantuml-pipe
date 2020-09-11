@@ -2,6 +2,8 @@
 
 # plantuml-pipe
 
+![data-flow](https://github.com/krisztianb/plantuml-pipe/raw/master/images/plantuml-pipe.png)
+
 A PlantUmlPipe instance is a wrapper to a PlantUML JAVA process running in pipe mode.
 The object has an input stream (`in`) into which the PlantUML code for one or multiple diagrams can be written and
 an output streams (`out`) from which the generated diagrams can be read.
