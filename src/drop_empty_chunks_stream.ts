@@ -1,17 +1,9 @@
-import { Transform, TransformCallback, TransformOptions } from "stream";
+import { Transform, TransformCallback } from "stream";
 
 /**
  * A transformation stream that doesn't forward empty chunks.
  */
 export class DropEmptyChunksStream extends Transform {
-    /**
-     * Creates a new transform stream.
-     * @param options Transform stream options.
-     */
-    constructor(options?: TransformOptions) {
-        super(options);
-    }
-
     /**
      * The transformation logic of the stream.
      * @param chunk The data chunk to be transformed.
