@@ -47,7 +47,7 @@ export class PlantUmlPipe {
                 options.outputFormat === "png" ? bsplit(options.delimiter + EOL) : split2(options.delimiter + EOL);
 
             // PlantUML pipe mode also adds the delimiter to the end of the last created image.
-            // This results in the last buffer being empty. SkipEmptyChunksStream drops that buffer.
+            // This results in the last buffer being empty. DropEmptyChunksStream drops that buffer.
             this.outputStream = this.javaProcess.stdout.pipe(splitter).pipe(new DropEmptyChunksStream());
         } else {
             this.outputStream = this.javaProcess.stdout;
