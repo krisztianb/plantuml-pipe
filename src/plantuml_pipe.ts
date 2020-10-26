@@ -55,14 +55,14 @@ export class PlantUmlPipe {
     }
 
     /**
-     * The input stream into which to write the PlantUML code of the diagrams.
+     * @returns The input stream into which to write the PlantUML code of the diagrams.
      */
     public get in(): Writable {
         return this.inputStream;
     }
 
     /**
-     * The output stream from which to read the generated PlantUML diagram images.
+     * @returns The output stream from which to read the generated PlantUML diagram images.
      */
     public get out(): Readable {
         return this.outputStream;
