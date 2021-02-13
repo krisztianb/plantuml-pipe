@@ -132,6 +132,7 @@
         "ordered-imports/ordered-imports": [
             "error",
             {
+                "symbols-first": false,
                 "declaration-ordering": ["source", "case-insensitive"],
                 "specifier-ordering": "case-insensitive"
             }
