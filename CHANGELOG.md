@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.6] - 2021-05-14
+### Changed
+- New plantuml.jar version: V1.2021.6 (14 May, 2021)
+
 ## [1.3.5] - 2020-12-22
 ### Changed
 - New plantuml.jar version: V1.2020.26 (21 Dec, 2020)
@@ -49,7 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First version
 
-[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.3.5...HEAD
+[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.3.6...HEAD
+[1.3.6]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.6
 [1.3.5]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.5
 [1.3.4]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.4
 [1.3.3]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.3
