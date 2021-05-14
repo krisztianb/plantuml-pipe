@@ -1,2 +1,2 @@
-The plantuml.jar in this folder is: V1.2020.26 (21 Dec, 2020)
+The plantuml.jar in this folder is: V1.2021.6 (14 May, 2021)
 You can find the CHANGELOG here: https://plantuml.com/changes
