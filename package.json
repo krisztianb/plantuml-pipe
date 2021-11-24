@@ -42,6 +42,7 @@
         "/vendor"
     ],
     "scripts": {
+        "prepare": "husky install",
         "lint": "npx eslint ./src",
         "format": "npx prettier --check ./src",
         "clean": "rimraf dist",
