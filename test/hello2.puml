@@ -1,6 +1,0 @@
-@startuml
-Buzz -> Woody : To infinity... and beyond!
-@enduml
-@startuml
-Woody -> Buzz : Howdy partner!
-@enduml
