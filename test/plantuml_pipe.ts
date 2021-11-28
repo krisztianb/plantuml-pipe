@@ -31,6 +31,7 @@ describe("PlantUmlPipe", function () {
         });
 
         puml.out.on("close", () => {
+            assert.strictEqual(fileNum, 3);
             assert.strictEqual(fs.existsSync(__dirname + "/1.svg"), true);
             assert.strictEqual(fs.existsSync(__dirname + "/2.svg"), true);
 
@@ -51,6 +52,7 @@ describe("PlantUmlPipe", function () {
         });
 
         puml.out.on("close", () => {
+            assert.strictEqual(fileNum, 3);
             assert.strictEqual(fs.existsSync(__dirname + "/1.png"), true);
             assert.strictEqual(fs.existsSync(__dirname + "/2.png"), true);
 
@@ -61,23 +63,25 @@ describe("PlantUmlPipe", function () {
     });
 
     it("should use the pixel cut off value", (done) => {
-        const puml = new PlantUmlPipe({ outputFormat: "png", pixelCutOffValue: 64 });
-        const filePath = __dirname + `/1-cutoff.png`;
+        const pixelCutOffValue = 64;
+        const puml = new PlantUmlPipe({ outputFormat: "png", pixelCutOffValue });
+        let fileNum = 1;
 
         Readable.from(toyStorySinglePlantUml).pipe(puml.in);
 
         puml.out.on("data", (chunk: string) => {
-            fs.writeFileSync(filePath, chunk);
+            fs.writeFileSync(__dirname + `/${fileNum++}.png`, chunk);
         });
 
         puml.out.on("close", () => {
-            assert.strictEqual(fs.existsSync(filePath), true);
+            assert.strictEqual(fileNum, 2);
+            assert.strictEqual(fs.existsSync(__dirname + "/1.png"), true);
 
-            const dimension = sizeOf(filePath);
-            assert.strictEqual(dimension.width, 64);
-            assert.strictEqual(dimension.height, 64);
+            const dimension = sizeOf(__dirname + "/1.png");
+            assert.strictEqual(dimension.width, pixelCutOffValue);
+            assert.strictEqual(dimension.height, pixelCutOffValue);
 
-            fs.unlinkSync(filePath);
+            fs.unlinkSync(__dirname + "/1.png");
             done();
         });
     });
