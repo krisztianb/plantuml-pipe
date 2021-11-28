@@ -34,7 +34,7 @@ export class PlantUmlPipe {
         const options = addDefaultsToOptions(userOptions);
 
         if (!fs.existsSync(options.jarPath)) {
-            throw new Error("File not found: " + options.jarPath);
+            throw new Error("plantuml JAR file not found: " + options.jarPath);
         }
 
         const args = createArgsFromOptions(options);
