@@ -22,7 +22,6 @@
         "eslint-plugin-jsdoc": "37.0.3",
         "eslint-plugin-ordered-imports": "0.6.0",
         "eslint-plugin-unicorn": "39.0.0",
-        "husky": "7.0.4",
         "image-size": "1.0.0",
         "mocha": "9.1.3",
         "prettier": "2.5.0",
@@ -46,7 +45,6 @@
         "/vendor"
     ],
     "scripts": {
-        "prepare": "husky install",
         "lint": "npx eslint ./src",
         "format": "npx prettier --check ./src",
         "clean": "rimraf dist",
