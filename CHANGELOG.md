@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2023-04-10
+### Changed
+- Updated dependencies (split2)
+- New plantuml.jar version: V1.2023.5 (24 Mar, 2023 - nodot)
+
 ## [1.4.0] - 2021-11-28
 ### Changed
 - Updated dependencies (split2)
@@ -59,7 +64,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First version
 
-[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.5.0
 [1.4.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.4.0
 [1.3.6]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.6
 [1.3.5]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.3.5
