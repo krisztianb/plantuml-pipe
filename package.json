@@ -44,7 +44,8 @@
     "files": [
         "/dist",
         "/scripts",
-        "/vendor"
+        "/vendor",
+        "CHANGELOG.md"
     ],
     "scripts": {
         "lint": "eslint ./src",
