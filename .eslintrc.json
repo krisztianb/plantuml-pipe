@@ -14,7 +14,7 @@
         "sourceType": "module",
         "project": ".eslint.tsconfig.json"
     },
-    "plugins": ["@typescript-eslint", "ordered-imports", "unicorn", "jsdoc"],
+    "plugins": ["@typescript-eslint", "ordered-imports", "unicorn", "jsdoc", "directory-mirror"],
     "rules": {
         // Possible errors
         "no-await-in-loop": "error",
@@ -165,6 +165,19 @@
         "jsdoc/require-returns-check": ["error"],
         "jsdoc/require-returns-description": ["error"],
         "jsdoc/require-returns": ["error"],
-        "jsdoc/require-throws": ["error"]
+        "jsdoc/require-throws": ["error"],
+
+        // plugin: directory-mirror
+        "directory-mirror/directory-mirror": [
+            "error",
+            {
+                "mirrors": [
+                    {
+                        "forEach": { "dir": "test", "ext": ".test.ts", "recursive": true },
+                        "require": { "dir": "src", "ext": ".ts" }
+                    }
+                ]
+            }
+        ]
     }
 }
