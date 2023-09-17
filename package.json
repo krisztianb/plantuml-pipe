@@ -12,24 +12,24 @@
         "plantuml"
     ],
     "devDependencies": {
-        "@types/binary-split": "1.0.0",
+        "@types/binary-split": "1.0.1",
         "@types/mocha": "10.0.1",
-        "@types/node": "14.17.34",
-        "@types/split2": "3.2.1",
-        "@typescript-eslint/eslint-plugin": "5.58.0",
-        "@typescript-eslint/parser": "5.58.0",
-        "eslint": "8.38.0",
+        "@types/node": "18.16.17",
+        "@types/split2": "4.2.0",
+        "@typescript-eslint/eslint-plugin": "6.7.0",
+        "@typescript-eslint/parser": "6.7.0",
+        "eslint": "8.49.0",
         "eslint-plugin-directory-mirror": "1.0.1",
-        "eslint-plugin-jsdoc": "40.1.2",
+        "eslint-plugin-jsdoc": "46.8.1",
         "eslint-plugin-ordered-imports": "0.6.0",
-        "eslint-plugin-unicorn": "46.0.0",
+        "eslint-plugin-unicorn": "48.0.1",
         "image-size": "1.0.2",
         "mocha": "10.2.0",
-        "prettier": "2.8.7",
-        "rimraf": "5.0.0",
-        "ts-essentials": "9.3.1",
+        "prettier": "3.0.3",
+        "rimraf": "5.0.1",
+        "ts-essentials": "9.4.0",
         "ts-node": "10.9.1",
-        "typescript": "5.0.4"
+        "typescript": "5.2.2"
     },
     "dependencies": {
         "binary-split": "^1.0.5",
@@ -48,8 +48,8 @@
         "CHANGELOG.md"
     ],
     "scripts": {
-        "lint": "eslint ./src",
-        "format": "prettier --check ./src",
+        "lint": "eslint ./src ./test",
+        "format": "prettier --check ./src ./test",
         "build": "rimraf dist && npx tsc",
         "test": "mocha -r ts-node/register 'test/**/*.test.ts'",
         "postinstall": "node scripts/testdot.js"
