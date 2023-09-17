@@ -7,8 +7,11 @@
 </p>
 
 A PlantUmlPipe instance is a wrapper to a PlantUML JAVA process running in pipe mode.
-The object has an input stream (`in`) into which the PlantUML code for one or multiple diagrams can be written and
+
+The object has an input stream (`in`) into which the PlantUML code of multiple diagrams can be written and
 an output streams (`out`) from which the generated diagrams can be read.
+
+Instead of the streams you can also use the `process` method of the object which returns a promise with the generated diagram.
 
 ## Installation
 
@@ -23,9 +26,9 @@ order to use this module. A corresponding test is run after installing this modu
 
 This module includes type definitions for TypeScript.
 
-## Usage
+## Usage (with streams)
 
-The following TypeScript code creates two SVG image files:
+The following TypeScript code creates two SVG image files using streams:
 
 ```typescript
 import * as fs from "fs";
@@ -54,6 +57,30 @@ Output:
 | :---------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
 | ![First image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN8ghQfIqBLJ2C_FJwbKi588oLV8p4lBpCiigTJJqrD8p4jHI4gjpCzBKUHoICrB0Me10000) | ![Second image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuGhFpq-fLD2rKt0ghQfIi5Bmo2y7yWk0idcfHOfS3gbvAK1b0000) |
 
+## Usage (with promises)
+
+The following TypeScript code creates the same two SVG image files using promises:
+
+```typescript
+import * as fs from "fs";
+import { PlantUmlPipe } from "plantuml_pipe";
+
+const puml = new PlantUmlPipe();
+
+const buzzPlantUml = "@startuml\nBuzz -> Woody : To infinity... and beyond!\n@enduml";
+const woodyPlantUml = "@startuml\nWoody -> Buzz : Howdy partner!\n@enduml";
+
+puml.process(buzzPlantUml).then((imageData) => {
+    fs.writeFileSync("./1.svg", imageData);
+});
+
+puml.process(woodyPlantUml).then((imageData) => {
+    fs.writeFileSync("./2.svg", imageData);
+});
+
+puml.close();
+```
+
 ## Options
 
 The `PlantUmlPipe` constructor can receive an options object as a parameter. It has the following members:
@@ -68,7 +95,7 @@ The `PlantUmlPipe` constructor can receive an options object as a parameter. It 
 | `pixelCutOffValue` | To prevent memory problems PlantUML limits the width and height of pixel (PNG) graphics to 4096. Use this option to set the `PLANTUML_LIMIT_SIZE` variable which overrides this value. |  |
 | `noErrorImages`    | By default when the PlantUML process encounters an error (eg: because of an error in your PlantUML code), it still generates an image which contains an error message. You can set this option to `true` to disable error image generation. You can then implement an error handling yourself using the normal data event of PlantUMLPipe's output stream. For every error the data chunk of the event is going to start with the line `ERROR`. | `false` |
 | `javaOptions`      | A string array of options that are passed to the JAVA process. If you are generating many big diagrams it might be necessary to increase the maximum heap size of the JAVA process. You can use this property to do so - look [here](https://plantuml.com/de/faq#e689668a91b8d065) for more information on this issue. |  |
-| `plantUmlArgs`     | A string array of arguments that are passed to the PlantUML process as options. The PlantUML process has many options that you can set through the command line. Some of these options can be set directly using a property of the options argument you pass to the constructor of PlantUmlPipe - for example the `delimiter` property sets the `-pipedelimitor "xyz"` option. If there is no property for the option that you want to pass to the PlantUML process, you can use this property to do so. You can find the list of possible PlantUML options [here](https://plantuml.com/de/command-line#6a26f548831e6a8c). |  |
+| `plantUmlArgs`     | A string array of arguments that are passed to the PlantUML process as options. The PlantUML process has many options that you can set through the command line. Some of these options can be set directly using a property of the options argument you pass to the constructor of PlantUmlPipe - for example the `delimiter` property sets the `-pipedelimitor "xyz"` option. If there is no property for the option that you want to pass to the PlantUML process, you can use this property to do so. You can find the list of available PlantUML options [here](https://plantuml.com/de/command-line#6a26f548831e6a8c). |  |
 
 ## Bugs
 

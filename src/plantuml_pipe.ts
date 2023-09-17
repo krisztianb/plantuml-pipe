@@ -27,6 +27,11 @@ export class PlantUmlPipe {
     private readonly outputStream: Readable;
 
     /**
+     * Collection of promise resolver functions used for the "process" method that returns a promise.
+     */
+    private readonly resolvers = new Array<(imageData: string | Readonly<Buffer>) => void>();
+
+    /**
      * Creates a new PlantUML pipe.
      * @param userOptions Possible user defined options for the PlantUML generating pipe.
      */
@@ -66,5 +71,50 @@ export class PlantUmlPipe {
      */
     public get out(): Readable {
         return this.outputStream;
+    }
+
+    /**
+     * Closes the input stream of the PlantUML diagram generator.
+     */
+    public close(): void {
+        this.inputStream.end();
+    }
+
+    /**
+     * Resolves the currently first promise in the queue by calling its corresponding resolve function.
+     * @param imageData The gnerated image data that is passed to the resolve function of the promise.
+     */
+    private readonly resolvePromise = (imageData: string | Readonly<Buffer>): void => {
+        const resolver = this.resolvers.shift();
+
+        if (resolver) {
+            resolver(imageData);
+        }
+    };
+
+    /**
+     * Generates a PlantUML diagram image from the given PlantUML code.
+     * @param plantUml The PlantUML code.
+     * @returns A promise with the data of the generated PlantUML diagram image.
+     */
+    public async process<T extends string | Readonly<Buffer>>(plantUml: string): Promise<T>;
+    public async process(plantUml: string): Promise<string | Readonly<Buffer>> {
+        let resolver: ((imageData: string | Readonly<Buffer>) => void) | undefined;
+
+        const promise = new Promise<string | Readonly<Buffer>>((resolve) => {
+            resolver = resolve;
+        });
+
+        if (resolver) {
+            this.resolvers.push(resolver);
+        }
+
+        if (!this.outputStream.listeners("data").includes(this.resolvePromise)) {
+            this.outputStream.on("data", this.resolvePromise);
+        }
+
+        this.inputStream.write(plantUml.endsWith("\n") ? plantUml : plantUml + "\n");
+
+        return promise;
     }
 }

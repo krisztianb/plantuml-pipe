@@ -1,2 +1,2 @@
-The plantuml.jar in this folder is: V1.2023.5 (24 Mar, 2023)
+The plantuml.jar in this folder is: V1.2023.11 (13 Sep, 2023)
 You can find the CHANGELOG here: https://plantuml.com/changes

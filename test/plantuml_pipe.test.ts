@@ -20,7 +20,38 @@ describe("PlantUmlPipe", function () {
     // eslint-disable-next-line @typescript-eslint/no-invalid-this -- See https://mochajs.org/#timeouts
     this.timeout(0);
 
-    it("should create two SVG images", (done) => {
+    it("should create two SVG images using promises", (done) => {
+        const puml = new PlantUmlPipe();
+
+        puml.process<string>(toyStorySinglePlantUml)
+            .then((imageData) => {
+                fs.writeFileSync(__dirname + `/promise-1.svg`, imageData);
+            })
+            .catch((err) => {
+                console.error("Unexpected error " + String(err));
+            });
+
+        puml.process<string>(toyStorySinglePlantUml)
+            .then((imageData) => {
+                fs.writeFileSync(__dirname + `/promise-2.svg`, imageData);
+            })
+            .catch((err) => {
+                console.error("Unexpected error " + String(err));
+            });
+
+        puml.out.on("close", () => {
+            assert.strictEqual(fs.existsSync(__dirname + "/promise-1.svg"), true);
+            assert.strictEqual(fs.existsSync(__dirname + "/promise-2.svg"), true);
+
+            fs.unlinkSync(__dirname + "/promise-1.svg");
+            fs.unlinkSync(__dirname + "/promise-2.svg");
+            done();
+        });
+
+        puml.close();
+    });
+
+    it("should create two SVG images using stream events", (done) => {
         const puml = new PlantUmlPipe();
         let fileNum = 1;
 
