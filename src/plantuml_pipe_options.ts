@@ -14,7 +14,7 @@ export type PlantUmlPipeOptions = {
      * Output format for the generated diagrams.
      * @default "svg"
      */
-    outputFormat?: "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
+    outputFormat?: "eps" | "latex" | "latex:nopreamble" | "pdf" | "png" | "svg" | "txt" | "utxt" | "vdx";
 
     /**
      * Delimiter used in the output stream to separate diagrams.
@@ -94,7 +94,8 @@ export function createArgsFromOptions(options: Readonly<Required<PlantUmlPipeOpt
     args.push("-jar");
     args.push(options.jarPath);
 
-    args.push("-t" + options.outputFormat);
+    args.push("-f");
+    args.push(options.outputFormat);
 
     args.push("-pipe");
     args.push("-pipedelimitor");

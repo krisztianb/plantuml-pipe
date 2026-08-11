@@ -1,9 +1,10 @@
 {
     "include": ["src"],
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "lib": ["ES2015"],
         "module": "commonjs",
+        "rootDir": ".",
         "outDir": "dist",
         "esModuleInterop": true,
         "declaration": true,

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-08-11
+### Changed
+- New plantuml.jar version: V1.2026.6 (Jun 8, 2026)
+
 ## [1.6.0] - 2023-09-17
 ### Added
 - New method 'process' that returns a promise for the PlantUML diagram image that is generated
@@ -70,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First version
 
-[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/krisztianb/plantuml-pipe/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.7.0
 [1.6.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.6.0
 [1.5.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.5.0
 [1.4.0]: https://github.com/krisztianb/plantuml-pipe/releases/tag/v1.4.0
