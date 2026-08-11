@@ -21,7 +21,7 @@ This module can be installed using [npm](https://www.npmjs.com/package/plantuml-
 $ npm install plantuml-pipe
 ```
 
-**Note:** [JAVA](https://www.java.com/) and [Graphviz](https://graphviz.org/) must be installed on your system in
+**Note:** [JAVA 8 or higher](https://www.java.com/) and [Graphviz](https://graphviz.org/) must be installed on your system in
 order to use this module. A corresponding test is run after installing this module.
 
 This module includes type definitions for TypeScript.
