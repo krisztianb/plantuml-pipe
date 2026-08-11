@@ -175,10 +175,16 @@ export default tslint.config(
             "import/order": [
                 "error",
                 {
+                    // Keep Node/external before relative paths
+                    groups: [
+                        ["builtin", "external"],
+                        ["internal", "parent", "sibling", "index", "object", "type"],
+                    ],
                     alphabetize: {
                         order: "asc",
-                        caseInsensitive: false,
+                        caseInsensitive: true,
                     },
+                    "newlines-between": "never",
                 },
             ],
 
