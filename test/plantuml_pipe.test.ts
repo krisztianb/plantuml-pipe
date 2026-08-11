@@ -1,6 +1,6 @@
 import assert from "assert";
 import * as fs from "fs";
-import sizeOf from "image-size";
+import sizeOf from "image-size-next";
 import { EOL } from "os";
 import { Readable } from "stream";
 import { PlantUmlPipe } from "../src/plantuml_pipe";
@@ -108,7 +108,8 @@ describe("PlantUmlPipe", function () {
             assert.strictEqual(fileNum, 2);
             assert.strictEqual(fs.existsSync(__dirname + "/1.png"), true);
 
-            const dimension = sizeOf(__dirname + "/1.png");
+            const imageBuffer = fs.readFileSync(__dirname + "/1.png");
+            const dimension = sizeOf(imageBuffer);
             assert.strictEqual(dimension.width, pixelCutOffValue);
             assert.strictEqual(dimension.height, pixelCutOffValue);
 
