@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.0] - 2026-08-11
 ### Changed
-- New plantuml.jar version: V1.2026.6 (Jun 8, 2026)
+- New plantuml.jar version: v1.2025.8 (Oct 4, 2025) (JAVA 8) // This is the latest version that correctly supports the -pipeNoStderr command line argument.
 
 ## [1.6.0] - 2023-09-17
 ### Added

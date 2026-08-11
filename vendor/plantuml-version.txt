@@ -1,2 +1,2 @@
-The plantuml.jar in this folder is: V1.2026.6 (Jun 8, 2026) (JAVA 8)
+The plantuml.jar in this folder is: v1.2025.8 (Oct 4, 2025) (JAVA 8)
 You can find the CHANGELOG here: https://plantuml.com/changes
